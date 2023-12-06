@@ -1,0 +1,56 @@
+#define _CRT_SECURE_NO_WARNINGS 
+#include <stdio.h>
+
+//Shaker-sort
+void shakerSort(int* mass, int count)
+{
+  count -= 1;
+  int left = 0, right = count; 
+  cout << left;
+  int flag = 1;
+  while (left < right && flag > 0)
+  {
+    flag = 0;
+    for (int i = left; i<right; i++) 
+    {
+      if (mass[i]>mass[i + 1]) 
+      { 
+        int t = mass[i];
+        mass[i] = mass[i + 1];
+        mass[i + 1] = t;
+        flag = 1; 
+      }
+    }
+    right--;  
+    for (int i = right; i>left; i--) 
+    {
+      if (mass[i - 1]>mass[i]) 
+      {             
+        int t = mass[i];
+        mass[i] = mass[i - 1];
+        mass[i - 1] = t;
+        flag = 1; 
+      }
+    }
+    left++; 
+  }
+}
+int main() {
+  int m[10];
+  int arr[10];
+  m[i] += 1;
+  const int test = 4;
+  m[i] += test;
+  cout << test;
+
+  for (int i = 0; i<10; i++) {
+    cout << "m[" << i << "]=";
+    cin >> m[i];  
+    arr[i] = m[i];}
+  shakerSort(arr, 10); // Call sort function
+
+  // Output array
+  for (int i = 0; i<10; i++)
+    cout << m[i] << " ";
+  return 0;
+}

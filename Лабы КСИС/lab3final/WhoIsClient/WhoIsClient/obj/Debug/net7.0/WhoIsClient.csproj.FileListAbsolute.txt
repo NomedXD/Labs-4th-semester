@@ -1,0 +1,15 @@
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/bin/Debug/net7.0/WhoIsClient
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/bin/Debug/net7.0/WhoIsClient.deps.json
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/bin/Debug/net7.0/WhoIsClient.runtimeconfig.json
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/bin/Debug/net7.0/WhoIsClient.dll
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/bin/Debug/net7.0/WhoIsClient.pdb
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/obj/Debug/net7.0/WhoIsClient.csproj.AssemblyReference.cache
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/obj/Debug/net7.0/WhoIsClient.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/obj/Debug/net7.0/WhoIsClient.AssemblyInfoInputs.cache
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/obj/Debug/net7.0/WhoIsClient.AssemblyInfo.cs
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/obj/Debug/net7.0/WhoIsClient.csproj.CoreCompileInputs.cache
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/obj/Debug/net7.0/WhoIsClient.dll
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/obj/Debug/net7.0/refint/WhoIsClient.dll
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/obj/Debug/net7.0/WhoIsClient.pdb
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/obj/Debug/net7.0/WhoIsClient.genruntimeconfig.cache
+/Users/nikapauluchenka/Projects/WhoIsClient/WhoIsClient/obj/Debug/net7.0/ref/WhoIsClient.dll

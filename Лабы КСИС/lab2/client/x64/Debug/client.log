@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\coovs\Desktop\Лабы КСИС\lab2\client\main.cpp(40,58): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\coovs\Desktop\Лабы КСИС\lab2\client\main.cpp(65,58): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  client.vcxproj -> C:\Users\coovs\Desktop\Лабы КСИС\lab2\x64\Debug\client.exe

@@ -1,0 +1,70 @@
+// ---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+#include "Unit2.cpp"
+#include <string>
+// ---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+
+TForm1 *Form1;
+String txt;
+
+// ---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
+
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::BLoadClick(TObject *Sender) {
+	if (TForm1::OpenDialog1->Execute()) {
+		txt = OpenDialog1->FileName;
+		if(in.is_open())
+			in.close();
+		in.open(txt.c_str());
+		TForm1::Memo1->Lines->Clear();
+		TForm1::Memo1->Lines->LoadFromFile(TForm1::OpenDialog1->FileName);
+	}
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::Button2Click(TObject *Sender) {
+	if(in.is_open()){
+		in.close();
+		in.open(txt.c_str());
+	}
+	next = 0;
+	errorFlag = false;
+	operatorsCount = 0;
+	absoluteDifficulty = 0;
+	maximalDepth = 0;
+	currentDepth = -1;
+	switchCount = 0;
+	terms.clear();
+	getTerms();
+	mainBlock();
+	relativeDifficulty = (double)absoluteDifficulty / operatorsCount;
+	Edit1->Text =  operatorsCount;
+	Edit2->Text =  absoluteDifficulty;
+	Edit3->Text =  FormatFloat("0.0000",relativeDifficulty);
+	Edit4->Text =  maximalDepth;
+}
+
+// ---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+	if (TForm1::SaveDialog1->Execute()) {
+		txt = SaveDialog1->FileName;
+		out.open(txt.c_str());
+		out << "Количество операторов: " << operatorsCount << "\n";
+		out << "Абсолютная сложность: " << absoluteDifficulty << "\n";
+		out << "Относительная сложность: " << relativeDifficulty << "\n";
+		out << "Максимальный уровень вложенности: " << maximalDepth;
+		out.close();
+	}
+}
+//---------------------------------------------------------------------------

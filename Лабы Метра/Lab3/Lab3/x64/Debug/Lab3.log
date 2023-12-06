@@ -1,0 +1,21 @@
+﻿  Lab3.cpp
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(190,31): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(186,9): warning C4101: count: неиспользованная локальная переменная
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(614,24): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "1" имеет тип "unsigned __int64"
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(614,24): message : рекомендуется использовать "%zd" в строке форматирования
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(621,24): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "1" имеет тип "unsigned __int64"
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(621,24): message : рекомендуется использовать "%zd" в строке форматирования
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(628,24): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "1" имеет тип "unsigned __int64"
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(628,24): message : рекомендуется использовать "%zd" в строке форматирования
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(635,24): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "1" имеет тип "unsigned __int64"
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(635,24): message : рекомендуется использовать "%zd" в строке форматирования
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(643,24): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "1" имеет тип "unsigned __int64"
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(643,24): message : рекомендуется использовать "%zd" в строке форматирования
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(650,24): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "1" имеет тип "unsigned __int64"
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(650,24): message : рекомендуется использовать "%zd" в строке форматирования
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(657,24): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "1" имеет тип "unsigned __int64"
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(657,24): message : рекомендуется использовать "%zd" в строке форматирования
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(664,24): warning C4477: "printf": в строке форматирования "%d" требуется аргумент типа "int", но вариативный аргумент "1" имеет тип "unsigned __int64"
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(664,24): message : рекомендуется использовать "%zd" в строке форматирования
+C:\Users\coovs\Desktop\Лабы Метра\Lab3\Lab3\Lab3.cpp(589,10): warning C4101: flag: неиспользованная локальная переменная
+  Lab3.vcxproj -> C:\Users\coovs\Desktop\Лабы Метра\Lab3\x64\Debug\Lab3.exe

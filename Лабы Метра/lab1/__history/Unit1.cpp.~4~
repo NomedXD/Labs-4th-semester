@@ -1,0 +1,103 @@
+// ---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+#include "Unit2.cpp"
+#include <string>
+// ---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+
+
+TForm1 *Form1;
+String txt;
+
+// ---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
+
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::BLoadClick(TObject *Sender) {
+	if (TForm1::OpenDialog1->Execute()) {
+		txt = OpenDialog1->FileName;
+		in.open(txt.c_str());
+		TForm1::Memo1->Lines->LoadFromFile(TForm1::OpenDialog1->FileName);
+	}
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::Button2Click(TObject *Sender) {
+
+	bool flag;
+	if (in.is_open())
+	{
+
+		next = 0;
+		if (getTerms())
+			if (!mainBlock2()) {
+				Label1->Visible = true;
+			}
+			else {
+                Label1->Visible = false;
+				for (const auto&elem : operators)
+					if (elem.second)
+					{
+						std::string temp = elem.first + "\t" + std::to_string(elem.second);
+						Memo2->Lines->Add(temp.c_str());
+
+					}
+					else
+						operatorsVocabulary--;
+				for (const auto&elem : operands)
+					if (elem.second)
+					{
+						std::string temp = elem.first + "\t" + std::to_string(elem.second);
+						Memo3->Lines->Add(temp.c_str());
+
+					}
+			}
+		in.close();
+
+
+	}
+}
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+
+	if (TForm1::SaveDialog1->Execute())         //out.is_open()
+	{
+		txt = SaveDialog1->FileName;
+		out.open(txt.c_str());
+		next = 0;
+		if (getTerms())
+			if (!mainBlock2())
+			{
+			   //	printf("ERROR\n");
+			   //	out << "ERROR\n";
+			   Label1->Visible=true;
+			}
+			else
+			{
+				Label1->Visible = false;
+				out << "OPERATORS:\n";
+				for (const auto& elem : operators)
+					if (elem.second)
+						out << elem.first << "\t" << elem.second << "\n";
+				out << "\n\n\n";
+				out << "OPERANDS:\n";
+				for (const auto& elem : operands)
+					out << elem.first << "\t" << elem.second << "\n";
+				//printf("SUCCESS\n");
+				//out << "SUCCESS\n";
+			}
+
+		out.close();
+
+	}
+}
+//---------------------------------------------------------------------------
+

@@ -1,0 +1,211 @@
+// ---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+#include "Unit2.cpp"
+#include <string>
+// ---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+
+TForm1 *Form1;
+String txt;
+
+// ---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
+
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::BLoadClick(TObject *Sender) {
+	if (TForm1::OpenDialog1->Execute()) {
+		txt = OpenDialog1->FileName;
+		if (in.is_open())
+			in.close();
+		in.open(txt.c_str());
+		TForm1::Memo1->Lines->Clear();
+		TForm1::Memo1->Lines->LoadFromFile(TForm1::OpenDialog1->FileName);
+	}
+}
+
+// ---------------------------------------------------------------------------
+void __fastcall TForm1::Button2Click(TObject *Sender) {
+	if (in.is_open()) {
+		in.close();
+		in.open(txt.c_str());
+	}
+	LError->Visible = false;
+	next = 0;
+	errorFlag = false;
+	spans.clear();
+	P.clear();
+	M.clear();
+	C.clear();
+	T.clear();
+	IOPMCT.clear();
+	IOP.clear();
+	IOM.clear();
+	IOC.clear();
+	IOT.clear();
+	terms.clear();
+
+	if (getTerms()) {
+		if (!mainBlock()) {
+			LError->Visible = true;
+		}
+		else {
+			Memo2->Lines->Clear();
+			const char* s1 = "\t";
+			const char* s2 = "\n";
+			const char* s3 = "\n\n\n";
+			for (const auto&elem : spans) {
+				char str[12];
+				sprintf(str, "%d", elem.second);
+				char res[100];
+				strcpy(res, elem.first.c_str());
+				strcat(res, s1);
+				strcat(res, str);
+				strcat(res, s2);
+				Memo2->Lines->Add(res);
+			}
+
+			const char* s4 = "P:\n";
+			const char* s5 = "M:\n";
+			const char* s6 = "C:\n";
+			const char* s7 = "T:\n";
+			Memo3->Lines->Add(s4);
+			for (const auto&elem : P) {
+
+				char str[12];
+				sprintf(str, "%d", elem.second);
+				char res[100];
+				strcpy(res, elem.first.c_str());
+				strcat(res, s1);
+				strcat(res, str);
+				strcat(res, s2);
+				strcat(res, s3);
+				Memo3->Lines->Add(res);
+			}
+			Memo3->Lines->Add(s3);
+			Memo3->Lines->Add(s5);
+			for (const auto&elem : M) {
+
+				char str[12];
+				sprintf(str, "%d", elem.second);
+				char res[100];
+				strcpy(res, elem.first.c_str());
+				strcat(res, s1);
+				strcat(res, str);
+				strcat(res, s2);
+				strcat(res, s3);
+				Memo3->Lines->Add(res);
+			}
+			Memo3->Lines->Add(s3);
+			Memo3->Lines->Add(s6);
+			for (const auto&elem : C) {
+
+				char str[12];
+				sprintf(str, "%d", elem.second);
+				char res[100];
+				strcpy(res, elem.first.c_str());
+				strcat(res, s1);
+				strcat(res, str);
+				strcat(res, s2);
+				strcat(res, s3);
+				Memo3->Lines->Add(res);
+			}
+			Memo3->Lines->Add(s3);
+			Memo3->Lines->Add(s7);
+			for (const auto&elem : T) {
+
+				char str[12];
+				sprintf(str, "%d", elem.second);
+				char res[100];
+				strcpy(res, elem.first.c_str());
+				strcat(res, s1);
+				strcat(res, str);
+				strcat(res, s2);
+				strcat(res, s3);
+				Memo3->Lines->Add(res);
+			}
+
+			const char* s8 = "IOP:\n";
+			const char* s9 = "IOM:\n";
+			const char* s10 = "IOC:\n";
+			const char* s11 = "IOT:\n";
+			Memo4->Lines->Add(s8);
+			for (const auto&elem : IOP) {
+
+				char str[12];
+				sprintf(str, "%d", elem.second);
+				char res[100];
+				strcpy(res, elem.first.c_str());
+				strcat(res, s1);
+				strcat(res, str);
+				strcat(res, s2);
+				strcat(res, s3);
+				Memo4->Lines->Add(s3);
+				Memo4->Lines->Add(res);
+			}
+			Memo4->Lines->Add(s3);
+			Memo4->Lines->Add(s9);
+			for (const auto&elem : IOM) {
+
+				char str[12];
+				sprintf(str, "%d", elem.second);
+				char res[100];
+				strcpy(res, elem.first.c_str());
+				strcat(res, s1);
+				strcat(res, str);
+				strcat(res, s2);
+				strcat(res, s3);
+				Memo4->Lines->Add(res);
+			}
+			Memo4->Lines->Add(s3);
+			Memo4->Lines->Add(s10);
+			for (const auto&elem : IOC) {
+
+				char str[12];
+				sprintf(str, "%d", elem.second);
+				char res[100];
+				strcpy(res, elem.first.c_str());
+				strcat(res, s1);
+				strcat(res, str);
+				strcat(res, s2);
+				strcat(res, s3);
+				Memo4->Lines->Add(res);
+			}
+			Memo4->Lines->Add(s3);
+			Memo4->Lines->Add(s11);
+			for (const auto&elem : IOT) {
+				char str[12];
+				sprintf(str, "%d", elem.second);
+				char res[100];
+				strcpy(res, elem.first.c_str());
+				strcat(res, s1);
+				strcat(res, str);
+				strcat(res, s2);
+				strcat(res, s3);
+				Memo4->Lines->Add(s3);
+				Memo4->Lines->Add(res);
+			}
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button1Click(TObject *Sender) {
+	// if (TForm1::SaveDialog1->Execute()) {
+	// txt = SaveDialog1->FileName;
+	// out.open(txt.c_str());
+	// out << "Количество операторов: " << operatorsCount << "\n";
+	// out << "Абсолютная сложность: " << absoluteDifficulty << "\n";
+	// out << "Относительная сложность: " << relativeDifficulty << "\n";
+	// out << "Максимальный уровень вложенности: " << maximalDepth;
+	// out.close();
+	// }
+}
+// ---------------------------------------------------------------------------
